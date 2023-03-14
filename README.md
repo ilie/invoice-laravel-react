@@ -36,8 +36,8 @@ If you want to use this app follow the steps below:
 -   Fist you have to clone this repository and install all php dependencies using composer.
 -   Configure your database in the .env file and run the migrations.
 -   Install all node modules using npm.
--   Run the backend using a web server or any other method which allows you to run a Laravel app.
--   Build the front end using the command "npm run build"
+-   Run the backend using a web server or any other [method which allows you to run a Laravel app](https://laravel.com/docs/10.x/installation).
+-   Build the front end using the command `npm run build`
 
 ### Links
 
