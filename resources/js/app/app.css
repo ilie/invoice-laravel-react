@@ -1,0 +1,244 @@
+main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+h1 {
+    margin: 0.7rem 0;
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: black;
+}
+h2 {
+    margin-top: -0.7rem;
+    margin-bottom: 0.7rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--black);
+}
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+h5 {
+    font-size: 1.4rem;
+}
+h6 {
+    font-size: 1.3rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    margin: 0.7rem 0;
+    color: var(--black);
+}
+
+.page_title {
+    display: flex;
+    margin-top: -10px;
+    padding: 0;
+    border-bottom: 1px solid var(--white-gray);
+    justify-content: space-between;
+}
+
+.margin-top-1 {
+    margin-top: 1rem;
+}
+.margin-top-2 {
+    margin-top: 2rem;
+}
+.margin-top-3 {
+    margin-top: 3rem;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0.9rem;
+    padding-left: 0.9rem;
+}
+
+.wrapper-500 {
+    max-width: 31.25rem;
+}
+.wrapper-500 form {
+    width: 100%;
+}
+
+.m-4-auto {
+    margin: 4rem auto;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+/* Forms */
+
+form .formgroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.6rem;
+}
+form .formgroup label {
+    margin-left: 0.2rem;
+    font-size: 0.87rem;
+    font-weight: 500;
+}
+.formgroup input[type="text"],
+.formgroup input[type="tel"],
+.formgroup input[type="email"] {
+    height: 2.2rem;
+    border: 1px solid transparent;
+    border-radius: 0.6rem;
+    padding: 0.2rem 0.6rem;
+    font-weight: 200;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    border-color: var(--white-gray);
+}
+
+.formgroup input[type="text"]:focus,
+.formgroup input[type="tel"]:focus,
+.formgroup input[type="email"]:focus {
+    border-color: var(--soft-blue);
+    border-width: 2px;
+    outline: none;
+}
+.formgroup input[type="text"]::placeholder,
+.formgroup input[type="tel"]::placeholder,
+.formgroup input[type="email"]::placeholder {
+    color: var(--white-gray);
+    font-size: 0.9rem;
+}
+
+.formgroup input[type="submit"] {
+    background-color: var(--purple);
+    padding: 0 0.9rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin: 0.3rem 0;
+    height: 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+}
+.formgroup input[type="submit"]:hover {
+    cursor: pointer;
+}
+.formgroup input[type="submit"]:disabled {
+    cursor: default;
+    background-color: var(--white-gray);
+}
+
+.formgroup input.input-error,
+.formgroup input.input-error:focus {
+    border-color: var(--red-txt);
+}
+.phone-input input.form-control {
+    padding-left: 2.5rem;
+    width: 31.5rem;
+}
+.phone-input .flag-dropdown {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+}
+.error-msg {
+    color: var(--red-txt);
+}
+.row {
+    margin-top: 2.2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.two-columns {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    padding: 1.5rem 0;
+}
+
+.two-columns .aside {
+    min-width: 8rem;
+}
+.two-columns .content {
+    /* margin: 0 auto; */
+}
+
+.wrapper-500.content {
+    background-color: azure;
+}
+
+/* Aside nav */
+.aside-nav ul {
+    list-style: none;
+    box-sizing: border-box;
+    border-left: 1px solid var(--white-gray);
+}
+.aside-nav ul li {
+    /* background-color: aquamarine; */
+    padding-bottom: 0.5rem;
+}
+
+.aside-nav ul li:last-child {
+    padding-bottom: 0;
+}
+
+.aside-nav ul li a {
+    text-decoration: none;
+    padding-left: 1.5rem;
+    box-sizing: border-box;
+    border-left: 2px solid transparent;
+    color: var(--gray);
+    margin-left: -1px;
+}
+.aside-nav ul li a:active,
+.aside-nav ul li a.active {
+    color: var(--purple);
+    border-left: 2px solid var(--purple);
+}
+
+.aside-nav ul li a:hover {
+    border-left-color: var(--purple);
+}
+
+@media (max-width: 870px) {
+    .row {
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 620px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 820px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 1020px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1220px;
+    }
+}

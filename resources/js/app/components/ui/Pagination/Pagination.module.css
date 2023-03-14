@@ -1,0 +1,20 @@
+.pagination {
+    margin: 1rem 0;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.9rem;
+}
+
+.pagination__info {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+.pagination__links {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}

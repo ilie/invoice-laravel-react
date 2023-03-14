@@ -1,0 +1,19 @@
+.header {
+    height: 4.1rem;
+    display: flex;
+    border-bottom: 1px solid var(--dark-white);
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header__button:hover {
+    cursor: pointer;
+}
+
+.header__title {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--white-gray);
+    font-size: 0.9rem;
+}

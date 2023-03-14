@@ -1,0 +1,20 @@
+.main-header {
+    height: 2.7rem;
+    width: 100%;
+    background-color: var(--white-blue);
+}
+
+.main-header__container {
+    display: flex;
+    align-items: center;
+    height: 2.7rem;
+}
+
+.main-header__logo {
+    margin-right: 0.8rem;
+    /* width: 1.3rem !important; */
+}
+
+.main-header__text {
+    margin: 0;
+}

@@ -1,0 +1,22 @@
+.line {
+    width: 60%;
+    height: 27rem;
+}
+.line canvas {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .line {
+        max-width: 47vw;
+        max-height: 27rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .line {
+        max-width: 100vw;
+        max-height: 50vh;
+    }
+}

@@ -1,0 +1,31 @@
+:root {
+    --loader-width: 6rem;
+    --loader-thick: 0.1rem;
+    --loader-left: 50%;
+    --loader-top: 47vh;
+}
+
+.loader {
+    width: var(--loader-width); /* the size */
+    padding: var(--loader-thick); /* the border thickness */
+    background: var(--purple); /* the color */
+
+    aspect-ratio: 1;
+    border-radius: 50%;
+    --_m: conic-gradient(#0000, #000), linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    box-sizing: border-box;
+    animation: load 1.2s linear infinite;
+    position: fixed;
+    left: calc(var(--loader-left) - (var(--loader-width) / 2));
+    top: calc(47vh - (var(--loader-width) / 2));
+}
+
+@keyframes load {
+    to {
+        transform: rotate(1turn);
+    }
+}

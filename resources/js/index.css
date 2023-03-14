@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --light-white:  #f0f0f0;
+    --dark-white:  #eaeae9;
+    --white-blue:  #f6f8fa;
+    --gray: #414552;
+    --light-gray: #414552;
+    --table-dark-color: #1a1b25;
+    --table-light-color: #4d5260;
+    --white-gray: #d0d0d0;
+    --black: #1A1B25
+    --green-bg: #d7f7c2;
+    --green-txt: #87c27d;
+    --red-bg: #ffe7f2;
+    --red-txt: #b40d3f;
+    --soft-blue: #75d5e8;
+    --purple: #625afa;
+}
+
+html,
+body {
+    border: 0;
+    font-size: 16px;
+    font: inherit;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica Neue","Ubuntu", sans-serif;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    color: var(--gray);
+}

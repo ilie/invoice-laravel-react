@@ -1,0 +1,28 @@
+.main-nav {
+    border-bottom: 2px solid var(--white-blue);
+    padding: 0.65rem 0;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: var(--light-gray);
+    padding: 0.23rem 0.78rem;
+    background-color: transparent;
+    border-radius: 0.7rem;
+}
+
+.main-nav ul li a:hover {
+    background-color: var(--white-blue);
+}
+.main-nav ul li a:active,
+.main-nav ul li a.active {
+    background-color: var(--purple);
+    color: white;
+}

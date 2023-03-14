@@ -1,0 +1,55 @@
+.table {
+    margin-top: 2rem;
+    border-collapse: collapse;
+    width: 100%;
+}
+.table thead tr {
+    border-top: 1px solid var(--dark-white);
+    border-bottom: 1px solid var(--dark-white);
+}
+.table thead tr th {
+    text-align: left;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    margin-bottom: 0.2rem;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gray);
+}
+
+.table thead tr th:last-child {
+    text-align: right;
+}
+
+/*Item */
+
+.item {
+    border-bottom: 1px solid var(--light-white);
+}
+
+.item td {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--table-light-color);
+}
+
+.item td:not(:last-child) {
+    padding-right: 0.5rem;
+}
+
+.item td:last-child {
+    text-align: right;
+    padding-left: 10px;
+}
+
+.item td a {
+    text-decoration: none;
+    color: var(--table-light-color);
+}
+
+.item .item__number,
+.item .item__name {
+    color: var(--table-dark-color);
+    font-weight: 500;
+}

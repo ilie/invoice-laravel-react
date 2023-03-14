@@ -1,0 +1,12 @@
+.cancel {
+    padding: auto;
+}
+
+.cancel svg {
+    color: inherit;
+    fill: var(--gray);
+}
+
+.cancel:hover {
+    cursor: pointer;
+}
