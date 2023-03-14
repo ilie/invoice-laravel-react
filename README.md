@@ -27,7 +27,7 @@ React is a JavaScript library for building user interfaces
 
 ## This app
 
-This app is intentd for personal and local use as it does not have any authentication mechanisms but if you whish is very easy to implement using Laravel Sanctum.
+This app is intentd for personal and local use as it does not have any authentication mechanisms but if you whish is very easy to implement using [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum#main-content).
 
 ## Using this web app
 
