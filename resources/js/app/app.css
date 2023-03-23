@@ -172,12 +172,16 @@ form .formgroup label {
 .two-columns .aside {
     min-width: 8rem;
 }
-.two-columns .content {
-    /* margin: 0 auto; */
+.content {
+    width: 100%;
+    /* background-color: antiquewhite; */
 }
 
-.wrapper-500.content {
-    background-color: azure;
+.align-center {
+    margin: 0 auto;
+}
+.m-4-auto .wrapper-500 {
+    margin: 0 auto;
 }
 
 /* Aside nav */

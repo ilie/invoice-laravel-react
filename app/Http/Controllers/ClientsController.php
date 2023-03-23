@@ -18,7 +18,7 @@ class ClientsController extends Controller
         return ClientCollection::make(
             $clients
                 ->allowedFilters(['id', 'name', 'cif', 'address', 'email', 'contact_name', 'contact_phone'])
-                ->allowedSorts(['name', 'cif', 'email', 'contact_name', 'created_at'])
+                ->allowedSorts(['name', 'cif', 'email', 'contact_name', 'contact_phone', 'created_at'])
                 ->jsonPaginate(100)
         );
     }

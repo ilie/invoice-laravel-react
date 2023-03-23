@@ -9,10 +9,21 @@ const ClientsTable = (props) => {
                     <th className="clickable" onClick={props.sortByName}>
                         Name
                     </th>
-                    <th>Cif</th>
-                    <th>Email</th>
-                    <th>Contact name</th>
-                    <th>Contact phone</th>
+                    <th className="clickable" onClick={props.sortByCif}>
+                        Cif
+                    </th>
+                    <th className="clickable" onClick={props.sortByEmail}>
+                        Email
+                    </th>
+                    <th className="clickable" onClick={props.sortByContactName}>
+                        Contact name
+                    </th>
+                    <th
+                        className="clickable"
+                        onClick={props.sortByContactPhone}
+                    >
+                        Contact phone
+                    </th>
                     <th className="clickable" onClick={props.sortByCreatedAt}>
                         Created at
                     </th>

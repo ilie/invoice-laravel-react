@@ -16,7 +16,7 @@ function usePagination(url, sortFields) {
             try {
                 const response = await axios.get(url, {
                     params: {
-                        sort: sortFields.join(","),
+                        sort: sortFields,
                         "page[size]": perPage,
                         "page[number]": currentPage,
                     },

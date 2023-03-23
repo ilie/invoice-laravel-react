@@ -11,10 +11,10 @@ import Pagination from "../../components/ui/Pagination/Pagination";
 
 const Clients = () => {
     useDocumentTitle("Clients | Billing");
-    const sortFields = ["name", "-created_at"];
-    const { sortFieldHandler, sortedFields } = useSort(sortFields);
+    const defaultSortFields = ["name", "-created_at"];
+    const [sortFields, sortFieldHandler] = useSort(defaultSortFields);
     const { data, links, currentPage, isLoading, error, goToPage } =
-        usePagination("/clients", sortedFields);
+        usePagination("/clients", sortFields);
     const prevPageHandler = () => currentPage > 1 && goToPage(currentPage - 1);
     const nextPageHandler = () =>
         currentPage < data.meta.last_page && goToPage(currentPage + 1);
@@ -38,6 +38,14 @@ const Clients = () => {
                 <>
                     <ClientsTable
                         sortByName={() => sortFieldHandler("name")}
+                        sortByCif={() => sortFieldHandler("cif")}
+                        sortByEmail={() => sortFieldHandler("email")}
+                        sortByContactName={() =>
+                            sortFieldHandler("contact_name")
+                        }
+                        sortByContactPhone={() =>
+                            sortFieldHandler("contact_phone")
+                        }
                         sortByCreatedAt={() => sortFieldHandler("created_at")}
                         data={data}
                     />

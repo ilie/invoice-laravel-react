@@ -1,27 +1,8 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import { NavLink, useParams } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import useUpdateResource from "../../hooks/updateResource";
-import useDocumentTitle from "../../hooks/useDocumentTitle";
-import useGetResourceByID from "../../hooks/useGetResourceByID";
 
 const ClientDetails = () => {
-    const { id } = useParams();
-    const { resource, loading, error } = useGetResourceByID("/clients", id);
-    const [updateResource, updatedResource, updatingError] =
-        useUpdateResource();
-
-    const onClientSaveHandler = async (data) => {
-        await updateResource(`/clients/${id}`, data);
-        if (updatingError) {
-            toast.error(updatingError.message);
-            return;
-        }
-        navigate("/clients", {
-            state: { type: "success", message: "Client updated successfully!" },
-        });
-    };
-
     return (
         <div className="container">
             <div className="two-columns">

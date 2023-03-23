@@ -6,6 +6,16 @@ export const formatAmount = (amount) => {
     });
 };
 
+export const formatCurency = (amount) => {
+    const formatter = new Intl.NumberFormat("es-ES", {
+        currency: "EUR",
+        style: "currency",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
+    return formatter.format(amount);
+};
+
 export function formatNumberToSuffix(num) {
     const suffixes = ["", "K", "M", "B", "T"]; // suffixes for thousand, million, billion, trillion...
     const thousand = 1000;
@@ -29,6 +39,10 @@ export function formatNumberToSuffix(num) {
         }
     }
     return num.toString();
+}
+
+export function formatDateToString(isoDate, locale = "en-UK") {
+    return new Date(isoDate).toLocaleString(locale);
 }
 
 export function humanDateFormat(isoDate, locale = "en-UK") {

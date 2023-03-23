@@ -33,20 +33,18 @@ const EditClient = () => {
         );
     }
     if (error) {
-        return (
-            <div className="container">
-                <p>{error}</p>
-            </div>
-        );
+        return <p>{error}</p>;
     }
 
     return (
         <>
             <h2>Edit Client</h2>
-            <EditClientForm
-                client={resource}
-                submitForm={onClientSaveHandler}
-            />
+            <div className="m-4-auto">
+                <EditClientForm
+                    client={resource}
+                    submitForm={onClientSaveHandler}
+                />
+            </div>
         </>
     );
 };

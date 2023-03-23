@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import InvoiceItem from "./InvoiceItem";
 
 const InvoicesTable = (props) => {
-    const [invoices, setInvoices] = useState(props.data.data);
     return (
         <table className="table">
             <thead>
@@ -13,26 +12,27 @@ const InvoicesTable = (props) => {
                     <th>Date</th>
                     <th>Client</th>
                     <th>Status</th>
+                    <th>Base Amount</th>
                     <th>Irpf</th>
                     <th>Vat</th>
-                    <th>Amount</th>
+                    <th>Total Amount</th>
                     <th>Options</th>
                 </tr>
             </thead>
             <tbody>
-                {invoices.map((invoice) => (
-
+                {props.invoices.map((invoice) => (
                     <InvoiceItem
                         key={invoice.id}
                         number={invoice.id}
-                        date={invoice.attributes.createdAt}
-                        clientName={invoice.relationships.client.data.attributes.name}
+                        createdAt={invoice.attributes.created_at}
+                        clientName={
+                            invoice.relationships.client.data.attributes.name
+                        }
                         clientId={invoice.relationships.client.data.id}
                         status={invoice.attributes.status}
                         irpf={invoice.attributes.irpf}
-                        vat={invoice.attributes.created_at}
-                        baseAmount={invoice.attributes.amount}
-                        totalAmount={}
+                        vat={invoice.attributes.vat}
+                        amount={invoice.attributes.amount}
                     />
                 ))}
             </tbody>
