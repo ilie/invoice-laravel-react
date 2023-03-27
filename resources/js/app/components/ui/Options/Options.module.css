@@ -42,11 +42,16 @@
 
 .dropdown_item {
     cursor: pointer;
-    /* margin-bottom: 0.5rem; */
     color: var(--purple);
     transition: background-color 0.2s ease;
     text-align: left;
     line-height: 1.5rem;
+    width: auto;
+    white-space: nowrap;
+}
+
+.dropdown_item_danger {
+    color: var(--red-danger);
 }
 
 .dropdown_item:hover {

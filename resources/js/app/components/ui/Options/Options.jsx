@@ -62,7 +62,11 @@ const Options = (props) => {
                         {props.options.map((option) => (
                             <div
                                 key={option.text}
-                                className={classes.dropdown_item}
+                                className={`${classes.dropdown_item} ${
+                                    option.danger
+                                        ? classes.dropdown_item_danger
+                                        : ""
+                                }`}
                                 onClick={option.click}
                             >
                                 {option.text}

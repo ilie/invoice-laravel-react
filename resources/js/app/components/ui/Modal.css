@@ -18,8 +18,31 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     z-index: 1;
     animation: showModal 0.3s ease-in-out;
+    background-color: white;
+}
+.modal-head,
+.modal-footer {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+}
+.modal-head {
+    border-bottom: 1px solid var(--white-gray);
 }
 
+.modal-body {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-footer.sm {
+    margin-left: 67%;
+    /* background-color: aqua; */
+    width: 10rem;
+    text-align: right;
+}
 @keyframes showModal {
     from {
         opacity: 0;

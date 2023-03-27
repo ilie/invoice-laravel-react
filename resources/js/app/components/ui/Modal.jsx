@@ -1,9 +1,10 @@
-import classes from "./Modal.module.css";
+import "./Modal.css";
+
 function Modal(props) {
     return (
         <>
-            <div className={classes.backdrop} onClick={props.onClose} />
-            <div className={classes.modal}>
+            <div className="backdrop" onClick={props.onClose} />
+            <div className="modal">
                 <button onClick={props.onClose}>Close</button>
                 <div className={classes.content}>{props.children}</div>
             </div>

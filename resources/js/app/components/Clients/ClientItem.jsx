@@ -9,11 +9,11 @@ const ClientItem = (props) => {
         navigate(`/clients/${props.id}/edit`);
     };
     const removeClientHandler = () => {
-        console.log("Removing client");
+        props.removeClient(props.id);
     };
     const clientOptions = [
         { text: "Edit", click: editClientHandler },
-        { text: "Remove", click: removeClientHandler },
+        { text: "Delete client", click: removeClientHandler, danger: true },
     ];
     return (
         <tr className="item">
