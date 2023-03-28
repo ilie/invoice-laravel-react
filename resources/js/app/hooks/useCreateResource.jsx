@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
-const useCreate = (url) => {
+const useCreateResource = (url) => {
     const [isLoading, setIsLoading] = useState(false);
     const [success, setSuccess] = useState(null);
     const [error, setError] = useState(null);
 
-    const create = async (clientData) => {
+    const store = async (data) => {
         setIsLoading(true);
         try {
-            await axios.post(url, clientData, {
+            await axios.post(url, data, {
                 headers: {
                     "Content-Type": "application/vnd.api+json",
                     Accept: "application/vnd.api+json",
@@ -22,7 +22,7 @@ const useCreate = (url) => {
         }
     };
 
-    return { create, isLoading, success, error };
+    return { store, isLoading, success, error };
 };
 
-export default useCreate;
+export default useCreateResource;

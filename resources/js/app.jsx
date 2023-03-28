@@ -4,19 +4,22 @@ import React from "react";
 import axios from "axios";
 import App from "./app/App";
 import Home from "./app/pages/Home";
-import Items from "./app/pages/Items";
 import ReactDOM from "react-dom/client";
 import Invoices from "./app/pages/Invoices";
-import ClientDetails from "./app/pages/clients/ClientDetails";
+import Items from "./app/pages/items/Items";
+import NewItem from "./app/pages/items/NewItem";
+import EditItem from "./app/pages/items/EditItem";
 import Clients from "./app/pages/clients/Clients";
 import NewClient from "./app/pages/clients/NewClient";
 import EditClient from "./app/pages/clients/EditClient";
+import ItemDetails from "./app/pages/items/ItemDetails";
+import ClientDetails from "./app/pages/clients/ClientDetails";
 import ClientInvoices from "./app/pages/clients/ClientInvoices";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 axios.defaults.baseURL = "https://billing.local.flo-dev.com/api";
-axios.defaults.headers.common["Content-Type"] = "application/vnd.api+json";
 axios.defaults.headers.common["Accept"] = "application/vnd.api+json";
+axios.defaults.headers.common["Content-Type"] = "application/vnd.api+json";
 
 const router = createBrowserRouter([
     {
@@ -35,9 +38,15 @@ const router = createBrowserRouter([
             },
             { path: "/invoices", element: <Invoices /> },
             { path: "/items", element: <Items /> },
+            {
+                path: "/items/:id",
+                element: <ItemDetails />,
+                children: [{ path: "edit", element: <EditItem /> }],
+            },
         ],
     },
     { path: "/clients/new", element: <NewClient /> },
+    { path: "/items/new", element: <NewItem /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

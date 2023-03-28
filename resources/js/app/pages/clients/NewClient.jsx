@@ -1,33 +1,33 @@
-import NewResourceHeader from "../../components/ui/NewResourceHeader/NewResourceHeader";
-import NewClientForm from "../../components/Clients/NewClientForm";
 import { useNavigate } from "react-router-dom";
-
-import axios from "axios";
-
+import useCreateResource from "../../hooks/useCreateResource";
+import NewClientForm from "../../components/Clients/NewClientForm";
+import NewResourceHeader from "../../components/ui/NewResourceHeader/NewResourceHeader";
+import { toast } from "react-toastify";
 const NewClient = () => {
     const navigate = useNavigate();
+    const { store, isLoading, success, error } = useCreateResource("/clients");
     const createClientHandler = async (data) => {
-        try {
-            await axios.post("/clients", data, {
-                headers: {
-                    "Content-Type": "application/vnd.api+json",
-                    Accept: "application/vnd.api+json",
-                },
-            });
-            navigate("/clients", {
-                state: {
-                    ok: true,
-                    message: "Client successfuly creates",
-                },
-            });
-        } catch (error) {
-            console.log(error.message);
+        store(data);
+
+        if (error) {
+            toast.error(error.message);
+            return;
         }
+
+        navigate("/clients", {
+            state: {
+                ok: true,
+                message: "Client created successfuly",
+            },
+        });
     };
     return (
         <>
             <NewResourceHeader title="Create new client" />
-            <NewClientForm isLoading submitForm={createClientHandler} />
+            <NewClientForm
+                isLoading={isLoading}
+                submitForm={createClientHandler}
+            />
         </>
     );
 };

@@ -30,3 +30,12 @@ export const newClientSchema = yup.object().shape({
         .required("Contact phone is required")
         .min(15, "Contact phone number is too short"),
 });
+
+export const newItemSchema = yup.object().shape({
+    name: yup.string().required("Item name is required"),
+    description: yup
+        .string()
+        .required("Please enter a description")
+        .min(10, "Description is too short"),
+    price: yup.string().required("Price is required"),
+});

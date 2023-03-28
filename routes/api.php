@@ -33,6 +33,7 @@ Route::prefix('clients')->group(function () {
 Route::prefix('items')->group(function () {
     Route::get('/', [ItemsController::class, 'index'])->name('items.index');
     Route::post('/', [ItemsController::class, 'store'])->name('items.store');
+    Route::get('/list', [ItemsController::class, 'list'])->name('items.list');
     Route::get('/{item}', [ItemsController::class, 'show'])->name('items.show');
     Route::put('/{item}', [ItemsController::class, 'update'])->name('items.update');
     Route::delete('/{item}', [ItemsController::class, 'destroy'])->name('items.destroy');

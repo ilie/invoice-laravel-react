@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Http\Resources\ItemResource;
 use Spatie\QueryBuilder\QueryBuilder;
+use App\Http\Resources\ItemCollection;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
-use App\Http\Resources\ItemCollection;
 
 class ItemsController extends Controller
 {
@@ -16,7 +16,8 @@ class ItemsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $items = QueryBuilder::for(Item::class);
         return ItemCollection::make(
             $items
@@ -27,11 +28,23 @@ class ItemsController extends Controller
     }
 
     /**
+     * Returns items in JSON format
+     *
+     * @return App\Models\Item;
+     */
+    public function list()
+    {
+        $items = Item::orderBy('name', 'asc')->get();
+        return $items->toJson();
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  App\Http\Requests\StoreItemRequest; $request
      */
-    public function store(StoreItemRequest $request):ItemResource {
+    public function store(StoreItemRequest $request): ItemResource
+    {
         $item = Item::create($request->validated());
         return ItemResource::make($item);
     }
@@ -42,7 +55,8 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item): ItemResource {
+    public function show(Item $item): ItemResource
+    {
         return ItemResource::make($item);
     }
 
@@ -53,7 +67,8 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateItemRequest $request, $id) {
+    public function update(UpdateItemRequest $request, $id)
+    {
         $item = Item::findOrFail($id);
         $item->update($request->validated());
         return ItemResource::make($item);
@@ -65,7 +80,8 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Item $item) {
+    public function destroy(Item $item)
+    {
         $item->delete();
         return response()->json(null, 204);
     }

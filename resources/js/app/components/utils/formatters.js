@@ -42,6 +42,9 @@ export function formatNumberToSuffix(num) {
 }
 
 export function formatDateToString(isoDate, locale = "en-UK") {
+    if (!isoDate) {
+        return "--";
+    }
     return new Date(isoDate).toLocaleString(locale);
 }
 

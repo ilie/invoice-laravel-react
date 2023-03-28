@@ -12,6 +12,7 @@
         "laravel-vite-plugin": "^0.7.4",
         "postcss": "^8.4.21",
         "react-chartjs-2": "^5.2.0",
+        "react-currency-input-field": "^3.6.10",
         "react-data-table-component": "^7.5.3",
         "react-phone-input-2": "^2.15.1",
         "react-phone-number-input": "^3.2.19",

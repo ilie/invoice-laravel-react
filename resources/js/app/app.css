@@ -92,7 +92,8 @@ form .formgroup label {
 }
 .formgroup input[type="text"],
 .formgroup input[type="tel"],
-.formgroup input[type="email"] {
+.formgroup input[type="email"],
+.formgroup input[type="number"] {
     height: 2.2rem;
     border: 1px solid transparent;
     border-radius: 0.6rem;
