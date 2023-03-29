@@ -80,3 +80,9 @@ export function humanDateFormat(isoDate, locale = "en-UK") {
         return `${formattedDate}, at ${date.toLocaleTimeString(locale)}`;
     }
 }
+
+export function snakeToSentence(string) {
+    return string.replace(/^_*(.)|_+(.)/g, (s, c, d) =>
+        c ? c.toUpperCase() : " " + d.toUpperCase()
+    );
+}

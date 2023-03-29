@@ -38,7 +38,9 @@ const EditClient = () => {
 
     return (
         <>
-            <h2>Edit Client</h2>
+            <div>
+                <h2>Edit Client</h2>
+            </div>
             <div className="m-4-auto">
                 <EditClientForm
                     client={resource}

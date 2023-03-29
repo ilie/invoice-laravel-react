@@ -48,6 +48,24 @@
     color: var(--table-light-color);
 }
 
+.item__status .status {
+    padding: 0.35rem;
+    border-radius: 0.4rem;
+    font-size: 0.8rem;
+    /* font-weight: 500; */
+}
+
+.item__status .draft {
+    color: var(--gray);
+}
+.item__status .pending_payment {
+    background-color: var(--red-bg);
+    color: var(--red-txt);
+}
+.item__status .paid {
+    color: var(--sail-color-green-600);
+}
+
 .item .item__number,
 .item .item__name {
     color: var(--table-dark-color);

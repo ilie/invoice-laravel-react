@@ -57,7 +57,6 @@ const Options = (props) => {
             </div>
             {menuIsOpen && (
                 <>
-                    {console.log(menuPosition)}
                     <div className={classes.options_dropdown}>
                         {props.options.map((option) => (
                             <div

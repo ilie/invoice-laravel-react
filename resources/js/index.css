@@ -20,6 +20,9 @@
     --red-danger: #DF1B41;
     --soft-blue: #75d5e8;
     --purple: #625afa;
+    --sail-color-green-100: rgb(215, 247, 194);
+    --sail-color-green: rgb(34, 132, 3);
+    --sail-color-green-600: rgb(0, 105, 8);
 }
 
 html,

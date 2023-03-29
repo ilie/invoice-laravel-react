@@ -8,11 +8,15 @@ const ClientItem = (props) => {
     const editClientHandler = () => {
         navigate(`/clients/${props.id}/edit`);
     };
+    const invoicesHandler = () => {
+        navigate(`/clients/${props.id}/invoices`);
+    };
     const removeClientHandler = () => {
         props.removeClient(props.id);
     };
     const clientOptions = [
         { text: "Edit", click: editClientHandler },
+        { text: "View invoices", click: invoicesHandler },
         { text: "Delete client", click: removeClientHandler, danger: true },
     ];
     return (

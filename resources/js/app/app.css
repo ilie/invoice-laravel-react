@@ -44,7 +44,11 @@ h6 {
     border-bottom: 1px solid var(--white-gray);
     justify-content: space-between;
 }
-
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
 .margin-top-1 {
     margin-top: 1rem;
 }

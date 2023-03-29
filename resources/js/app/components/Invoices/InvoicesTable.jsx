@@ -11,8 +11,8 @@ const InvoicesTable = (props) => {
                     </th>
                     <th>Date</th>
                     <th>Client</th>
-                    <th>Status</th>
-                    <th>Base Amount</th>
+                    <th className="th_status">Status</th>
+                    <th className="th__base-amount">Base Amount</th>
                     <th>Irpf</th>
                     <th>Vat</th>
                     <th>Total Amount</th>
