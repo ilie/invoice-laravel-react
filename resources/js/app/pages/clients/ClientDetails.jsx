@@ -1,6 +1,5 @@
 import React from "react";
 import { Outlet, NavLink } from "react-router-dom";
-import useUpdateResource from "../../hooks/updateResource";
 
 const ClientDetails = () => {
     return (

@@ -8,6 +8,8 @@ use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\InvoiceResource;
 use App\Http\Resources\InvoiceCollection;
 use App\Http\Requests\InvoiceRequest;
+use App\Http\Requests\UpdateInvoiceStatusRequest;
+use Illuminate\Auth\Events\Validated;
 
 class InvoiceController extends Controller
 {
@@ -64,6 +66,20 @@ class InvoiceController extends Controller
         $invoiceService = new InvoiceService();
         $updatedInvoice = $invoiceService->update($data, $invoice['id']);
         return InvoiceResource::make($updatedInvoice);
+    }
+
+    /**
+     * Updates the invoice's status
+     *
+     * @param \App\Models\Invoice  $invoice
+     * @param \App\Http\Requests\UpdateInvoiceStatusRequest $request
+     * @return \App\Http\Resources\InvoiceResource
+     */
+    public function updateStatus(UpdateInvoiceStatusRequest $request, Invoice $invoice)
+    {
+        $newStatus = $request->Validated();
+        $invoice->update($newStatus);
+        return InvoiceResource::make($invoice);
     }
 
     /**

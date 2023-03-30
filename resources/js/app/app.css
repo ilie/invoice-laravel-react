@@ -221,7 +221,13 @@ form .formgroup label {
 .aside-nav ul li a:hover {
     border-left-color: var(--purple);
 }
-
+.main-error-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25%;
+    font-size: 2rem;
+}
 @media (max-width: 870px) {
     .row {
         flex-wrap: wrap;
@@ -250,4 +256,9 @@ form .formgroup label {
     .container {
         max-width: 1220px;
     }
+}
+
+/* Icons */
+.Icon-color--green500 {
+    color: var(--sail-color-green-500);
 }

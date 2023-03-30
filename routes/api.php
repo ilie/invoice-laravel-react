@@ -45,4 +45,5 @@ Route::prefix('invoices')->group(function () {
     Route::post('/', [InvoiceController::class, 'store'])->name('invoices.store');
     Route::get('/{invoice}', [InvoiceController::class, 'show'])->name('invoices.show');
     Route::put('/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
+    Route::put('/update-status/{invoice}', [InvoiceController::class, 'updateStatus'])->name('invoices.updateStatus');
 });

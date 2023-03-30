@@ -5,14 +5,15 @@ import axios from "axios";
 import App from "./app/App";
 import Home from "./app/pages/Home";
 import ReactDOM from "react-dom/client";
-import Invoices from "./app/pages/Invoices";
 import Items from "./app/pages/items/Items";
 import NewItem from "./app/pages/items/NewItem";
 import EditItem from "./app/pages/items/EditItem";
 import Clients from "./app/pages/clients/Clients";
+import Invoices from "./app/pages/invoices/Invoices";
 import NewClient from "./app/pages/clients/NewClient";
 import EditClient from "./app/pages/clients/EditClient";
 import ItemDetails from "./app/pages/items/ItemDetails";
+import InvoicePDF from "./app/pages/invoices/InvoicePDF";
 import ClientDetails from "./app/pages/clients/ClientDetails";
 import ClientInvoices from "./app/pages/clients/ClientInvoices";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
     },
     { path: "/clients/new", element: <NewClient /> },
     { path: "/items/new", element: <NewItem /> },
+    { path: "/invoices/:id/pdf", element: <InvoicePDF /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

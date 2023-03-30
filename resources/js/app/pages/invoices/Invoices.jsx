@@ -1,5 +1,5 @@
 import React from "react";
-import useDocumentTitle from "../hooks/useDocumentTitle";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 const Invoices = () => {
     useDocumentTitle("Invoices | Billing");
     return (

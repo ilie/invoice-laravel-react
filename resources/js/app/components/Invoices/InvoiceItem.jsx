@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+
 import {
     calculateVat,
     calculateIrpf,
@@ -19,12 +22,43 @@ const InvoiceItem = (props) => {
         navigate(`/invoices/${props.id}/edit`);
     };
 
+    const updateStatusHandler = async (newStatus) => {
+        try {
+            await axios.put(`/invoices/update-status/${props.number}`, {
+                status: newStatus,
+            });
+            setInvoiceStatus(newStatus);
+        } catch (error) {
+            toast.error(error.response.data.errors[0].title);
+        }
+    };
+
     const invoiceOptions = [
         { text: "Edit", click: editInvoiceHandler },
-        { text: "Generate PDF", click: editInvoiceHandler },
-        { text: "Mark as draft", click: editInvoiceHandler },
-        { text: "Mark as pending payment", click: editInvoiceHandler },
-        { text: "Mark as paid", click: editInvoiceHandler },
+        {
+            text: "Generate PDF",
+            click: () => {
+                window.open(`/invoices/${props.number}/pdf`, "_blank");
+            },
+        },
+        {
+            text: "Mark as draft",
+            click: () => {
+                updateStatusHandler("draft");
+            },
+        },
+        {
+            text: "Mark as pending payment",
+            click: () => {
+                updateStatusHandler("pending_payment");
+            },
+        },
+        {
+            text: "Mark as paid",
+            click: () => {
+                updateStatusHandler("paid");
+            },
+        },
     ];
 
     const vatValue = calculateVat(props.amount, props.vat);

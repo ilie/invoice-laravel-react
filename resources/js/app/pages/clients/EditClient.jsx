@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import Loader from "../../components/ui/Loader/Loader";
-import useUpdateResource from "../../hooks/updateResource";
+import useUpdateResource from "../../hooks/useUpdateResource";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import useGetResourceByID from "../../hooks/useGetResourceByID";
 import EditClientForm from "../../components/Clients/EditClientForm";

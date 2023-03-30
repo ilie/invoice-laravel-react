@@ -16,6 +16,11 @@ const Options = (props) => {
         }
     };
 
+    const clickMenuOptionHandler = (option) => {
+        option.click();
+        setMenuIsOpen(false);
+    };
+
     useEffect(() => {
         document.addEventListener("mousedown", outsideClickHandler);
         return () => {
@@ -66,7 +71,9 @@ const Options = (props) => {
                                         ? classes.dropdown_item_danger
                                         : ""
                                 }`}
-                                onClick={option.click}
+                                onClick={() => {
+                                    clickMenuOptionHandler(option);
+                                }}
                             >
                                 {option.text}
                             </div>
