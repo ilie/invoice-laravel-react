@@ -1,10 +1,8 @@
-import { useEffect } from "react";
 import useSort from "../../hooks/useSort";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import usePagination from "../../hooks/usePagination";
 import Loader from "../../components/ui/Loader/Loader";
 import Button from "../../components/ui/Button/Button";
-import { toast } from "react-toastify";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import ClientsTable from "../../components/Clients/ClientsTable";
 import Pagination from "../../components/ui/Pagination/Pagination";
@@ -18,13 +16,6 @@ const Clients = () => {
     const prevPageHandler = () => currentPage > 1 && goToPage(currentPage - 1);
     const nextPageHandler = () =>
         currentPage < data.meta.last_page && goToPage(currentPage + 1);
-
-    const { state } = useLocation();
-    useEffect(() => {
-        if (!!state && state.message !== "") {
-            toast.success(state.message);
-        }
-    }, [location]);
 
     return (
         <div className="container">

@@ -11,17 +11,12 @@ const NewItem = () => {
 
     const createItemHandler = (data) => {
         store(data);
+
         if (error) {
             toast.error("Item cannot be deleted");
             return;
         }
-
-        navigate("/items", {
-            state: {
-                ok: true,
-                message: "Item created successfuly",
-            },
-        });
+        navigate("/items");
     };
     return (
         <>

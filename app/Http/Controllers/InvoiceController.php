@@ -23,8 +23,9 @@ class InvoiceController extends Controller
         $invoices = QueryBuilder::for(Invoice::class);
         return InvoiceCollection::make(
             $invoices
+                ->defaultSort('id')
                 ->allowedFilters(['client.name', 'client.id', 'status', 'created_at', 'updated_at'])
-                ->allowedSorts(['id', 'client_name', 'status', 'created_at', 'updated_at'])
+                ->allowedSorts(['id', 'status', 'irpf', 'vat', 'created_at', 'updated_at'])
                 ->jsonPaginate(100)
         );
     }

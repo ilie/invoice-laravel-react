@@ -39,3 +39,28 @@ export const newItemSchema = yup.object().shape({
         .min(10, "Description is too short"),
     price: yup.string().required("Price is required"),
 });
+
+export const newInvoiceSchema = yup.object().shape({
+    client_id: yup
+        .string()
+        .required("Please pick a client from the dropdown list"),
+    status: yup
+        .string()
+        .oneOf(
+            ["draft", "pending_payment", "payd"],
+            "Selected value is incorrect"
+        )
+        .required("Please pick a status form the options below"),
+    items: yup.array().of(
+        yup.object().shape({
+            item_id: yup
+                .string()
+                .required("Please select an item from the list"),
+            date: yup.date().required("Date is required"),
+            quantity: yup
+                .number()
+                .positive("Quntity must be a positive number")
+                .required("Please provide a quantity"),
+        })
+    ),
+});

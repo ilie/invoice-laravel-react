@@ -25,9 +25,9 @@ class InvoiceResource extends JsonResource
                     return $item->pivot->quantity * $item->price;
                 }),
                 'irpf' => $this->resource->irpf,
-                'vat'=> $this->resource->vat,
-                'created_at'=> $this->resource->created_at,
-                'updated_at'=> $this->resource->updated_at,
+                'vat' => $this->resource->vat,
+                'created_at' => $this->resource->created_at,
+                'updated_at' => $this->resource->updated_at,
             ],
             'relationships' => [
                 'client' => [
@@ -36,6 +36,9 @@ class InvoiceResource extends JsonResource
                         'id' => (string) $this->resource->client_id,
                         'attributes' => [
                             'name' => $this->resource->client->name,
+                            'cif' => $this->resource->client->cif,
+                            'address' => $this->resource->client->address,
+                            'phone' => $this->resource->client->phone,
                             'email' => $this->resource->client->email
                         ]
                     ],
@@ -58,9 +61,9 @@ class InvoiceResource extends JsonResource
                     })->toArray(),
                 ],
             ],
-        'links'=>[
-            'self'=> route('invoices.show', $this->resource)
-        ]
+            'links' => [
+                'self' => route('invoices.show', $this->resource)
+            ]
         ];
     }
 }

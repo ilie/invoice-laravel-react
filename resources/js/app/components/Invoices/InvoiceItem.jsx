@@ -72,7 +72,9 @@ const InvoiceItem = (props) => {
     return (
         <tr className="item">
             <td className="item__number">
-                <Link to={`${props.number}/edit`}>{props.number}</Link>
+                <Link to={`/invoices/${props.number}/edit`}>
+                    {props.number}
+                </Link>
             </td>
             <td className="item__date">
                 {formatDateToString(props.createdAt)}

@@ -17,11 +17,24 @@ class ClientsController extends Controller
         $clients = QueryBuilder::for(Client::class);
         return ClientCollection::make(
             $clients
+                ->defaultSort(['name', '-created_at'])
                 ->allowedFilters(['id', 'name', 'cif', 'address', 'email', 'contact_name', 'contact_phone'])
                 ->allowedSorts(['name', 'cif', 'email', 'contact_name', 'contact_phone', 'created_at'])
                 ->jsonPaginate(100)
         );
     }
+
+    /**
+     * Returns clients in JSON format
+     *
+     * @return App\Models\Client;
+     */
+    public function list()
+    {
+        $clients = Client::orderBy('name', 'asc')->get();
+        return $clients->toJson();
+    }
+
 
     // Get a client
     public function show(Client $client): ClientResource

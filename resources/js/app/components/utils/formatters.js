@@ -16,6 +16,14 @@ export const formatCurency = (amount) => {
     return formatter.format(amount);
 };
 
+export const formatNumber = (number) => {
+    const formatter = new Intl.NumberFormat("es-ES", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
+    return formatter.format(number);
+};
+
 export function formatNumberToSuffix(num) {
     const suffixes = ["", "K", "M", "B", "T"]; // suffixes for thousand, million, billion, trillion...
     const thousand = 1000;
@@ -46,6 +54,29 @@ export function formatDateToString(isoDate, locale = "en-UK") {
         return "--";
     }
     return new Date(isoDate).toLocaleString(locale);
+}
+
+export function onlyDatefromISO(isoDate, locale = "en-UK") {
+    if (!isoDate) {
+        return "--";
+    }
+    return new Date(isoDate).toLocaleDateString(locale);
+}
+
+function padTo2Digits(num) {
+    return num.toString().padStart(2, "0");
+}
+
+export function formatDate(isoDate) {
+    if (!isoDate) {
+        return "--";
+    }
+    const date = new Date(isoDate);
+    return [
+        padTo2Digits(date.getDate()),
+        padTo2Digits(date.getMonth() + 1),
+        date.getFullYear(),
+    ].join(".");
 }
 
 export function humanDateFormat(isoDate, locale = "en-UK") {
@@ -85,4 +116,8 @@ export function snakeToSentence(string) {
     return string.replace(/^_*(.)|_+(.)/g, (s, c, d) =>
         c ? c.toUpperCase() : " " + d.toUpperCase()
     );
+}
+
+export function sliceText(string, chars = 11) {
+    return string.slice(0, chars) + (string.length > chars ? "..." : "");
 }

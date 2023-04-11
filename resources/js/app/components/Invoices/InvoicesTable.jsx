@@ -9,9 +9,16 @@ const InvoicesTable = (props) => {
                     <th className="clickable" onClick={props.sortByNumber}>
                         Number
                     </th>
-                    <th>Date</th>
+                    <th className="clickable" onClick={props.sortByDate}>
+                        Date
+                    </th>
                     <th>Client</th>
-                    <th className="th_status">Status</th>
+                    <th
+                        className="th_status clickable"
+                        onClick={props.sortByStatus}
+                    >
+                        Status
+                    </th>
                     <th className="th__base-amount">Base Amount</th>
                     <th>Irpf</th>
                     <th>Vat</th>

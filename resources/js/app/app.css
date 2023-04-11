@@ -97,7 +97,8 @@ form .formgroup label {
 .formgroup input[type="text"],
 .formgroup input[type="tel"],
 .formgroup input[type="email"],
-.formgroup input[type="number"] {
+.formgroup input[type="number"],
+.formgroup input[type="select"] {
     height: 2.2rem;
     border: 1px solid transparent;
     border-radius: 0.6rem;
@@ -110,7 +111,8 @@ form .formgroup label {
 
 .formgroup input[type="text"]:focus,
 .formgroup input[type="tel"]:focus,
-.formgroup input[type="email"]:focus {
+.formgroup input[type="email"]:focus,
+.formgroup input[type="select"]:focus {
     border-color: var(--soft-blue);
     border-width: 2px;
     outline: none;

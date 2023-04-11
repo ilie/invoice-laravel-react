@@ -1,11 +1,14 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import NewInvoiceForm from "../../components/Invoices/NewInvoiceForm";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 import useCreateResource from "../../hooks/useCreateResource";
-import NewClientForm from "../../components/Clients/NewClientForm";
 import NewResourceHeader from "../../components/ui/NewResourceHeader/NewResourceHeader";
-import { toast } from "react-toastify";
-const NewClient = () => {
+
+const NewInvoice = () => {
+    useDocumentTitle("New Invoice | Billing");
     const navigate = useNavigate();
-    const { store, isLoading, success, error } = useCreateResource("/clients");
+    const { store, isLoading, success, error } = useCreateResource("/invoices");
     const createClientHandler = async (data) => {
         store(data);
 
@@ -13,12 +16,12 @@ const NewClient = () => {
             toast.error(error.message);
             return;
         }
-        navigate("/clients");
+        navigate("/invoices");
     };
     return (
         <>
-            <NewResourceHeader title="Create new client" />
-            <NewClientForm
+            <NewResourceHeader title="Create new invoice" />
+            <NewInvoiceForm
                 isLoading={isLoading}
                 submitForm={createClientHandler}
             />
@@ -26,4 +29,4 @@ const NewClient = () => {
     );
 };
 
-export default NewClient;
+export default NewInvoice;

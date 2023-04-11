@@ -14,8 +14,11 @@ import NewClient from "./app/pages/clients/NewClient";
 import EditClient from "./app/pages/clients/EditClient";
 import ItemDetails from "./app/pages/items/ItemDetails";
 import InvoicePDF from "./app/pages/invoices/InvoicePDF";
+import NewInvoice from "./app/pages/invoices/NewInvoice";
+import EditInvoice from "./app/pages/invoices/EditInvoice";
 import ClientDetails from "./app/pages/clients/ClientDetails";
 import ClientInvoices from "./app/pages/clients/ClientInvoices";
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 axios.defaults.baseURL = "https://billing.local.flo-dev.com/api";
@@ -48,7 +51,9 @@ const router = createBrowserRouter([
     },
     { path: "/clients/new", element: <NewClient /> },
     { path: "/items/new", element: <NewItem /> },
+    { path: "/invoices/new", element: <NewInvoice /> },
     { path: "/invoices/:id/pdf", element: <InvoicePDF /> },
+    { path: "/invoices/:id/edit", element: <EditInvoice /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

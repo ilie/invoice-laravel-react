@@ -24,6 +24,7 @@ Route::get('/stats', [StatsController::class, 'index'])->name('stats');
 Route::prefix('clients')->group(function () {
     Route::get('/', [ClientsController::class, 'index'])->name('clients.index');
     Route::post('/', [ClientsController::class, 'store'])->name('clients.store');
+    Route::get('/list', [ClientsController::class, 'list'])->name('clients.list');
     Route::get('/{client}', [ClientsController::class, 'show'])->name('clients.show');
     Route::put('/{client}', [ClientsController::class, 'update'])->name('clients.update');
     Route::delete('/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
