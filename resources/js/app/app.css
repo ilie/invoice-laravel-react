@@ -163,7 +163,35 @@ form .formgroup label {
     display: flex;
     gap: 2rem;
 }
+/*---*/
+.display-flex-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.display-flex-row .inputs {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
 
+    width: 550px;
+}
+.display-flex-row .inputs div .select,
+.display-flex-row .inputs .select {
+    width: 260px;
+}
+.display-flex-row .inputs .date {
+    width: 100px;
+}
+.display-flex-row .inputs .quantity {
+    width: 65px;
+}
+.display-flex-row .input-controls {
+    margin-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+}
 .clickable {
     cursor: pointer;
 }
@@ -229,6 +257,10 @@ form .formgroup label {
     align-items: center;
     margin-top: 25%;
     font-size: 2rem;
+}
+/*Date picker */
+.item_date .react-datepicker__day--selected {
+    background-color: var(--purple) !important;
 }
 @media (max-width: 870px) {
     .row {

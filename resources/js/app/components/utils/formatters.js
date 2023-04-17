@@ -63,6 +63,20 @@ export function onlyDatefromISO(isoDate, locale = "en-UK") {
     return new Date(isoDate).toLocaleDateString(locale);
 }
 
+export function isoToSql(isoDate) {
+    const date = new Date(isoDate);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
+    return `${year}-${month}-${day}`;
+}
+
+export function sqlToIso(sqlDate) {
+    const [year, month, day] = sqlDate.split("-");
+    const date = new Date(year, month - 1, day);
+    return date.toISOString();
+}
+
 function padTo2Digits(num) {
     return num.toString().padStart(2, "0");
 }

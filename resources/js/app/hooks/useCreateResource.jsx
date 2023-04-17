@@ -17,7 +17,14 @@ const useCreateResource = (url) => {
             setSuccess(true);
             setIsLoading(false);
         } catch (err) {
-            setError(err.message);
+            if (err.response && err.response.data && err.response.data.errors) {
+                const validationErrors = err.response.data.errors.map(
+                    (error) => error.detail
+                );
+                setError(validationErrors.join(", "));
+            } else {
+                setError(err.message);
+            }
             setIsLoading(false);
         }
     };

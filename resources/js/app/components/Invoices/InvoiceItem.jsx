@@ -19,7 +19,7 @@ const InvoiceItem = (props) => {
     const [invoiceStatus, setInvoiceStatus] = useState(props.status);
     const navigate = useNavigate();
     const editInvoiceHandler = () => {
-        navigate(`/invoices/${props.id}/edit`);
+        navigate(`/invoices/${props.number}/edit`);
     };
 
     const updateStatusHandler = async (newStatus) => {

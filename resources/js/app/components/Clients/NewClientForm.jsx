@@ -120,6 +120,17 @@ const NewClientForm = (props) => {
                             errors.phone && touched.phone ? "input-error" : ""
                         }
                     />
+                    {/* <input
+                        type="number"
+                        id="phone"
+                        name="phone"
+                        placeholder="912 345 678"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={
+                            errors.phone && touched.phone ? "input-error" : ""
+                        }
+                    /> */}
                 </div>
                 <div className="formgroup">
                     <label htmlFor="email">
@@ -198,6 +209,19 @@ const NewClientForm = (props) => {
                                 : ""
                         }
                     />
+                    {/* <input
+                        type="number"
+                        id="contact_phone"
+                        name="contact_phone"
+                        placeholder="912 345 678"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={
+                            errors.contact_phone && touched.contact_phone
+                                ? "input-error"
+                                : ""
+                        }
+                    /> */}
                 </div>
                 <div className="formgroup">
                     <input

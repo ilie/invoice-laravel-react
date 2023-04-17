@@ -8,6 +8,9 @@ const Button = (props) => {
         case "primary":
             classNames = classes.primary;
             break;
+        case "primary-sm":
+            classNames = classes.primary_sm;
+            break;
         case "secondary":
             classNames = classes.secondary;
             break;
@@ -16,6 +19,9 @@ const Button = (props) => {
             break;
         case "info":
             classNames = classes.info;
+            break;
+        case "control":
+            classNames = classes.control;
             break;
         default:
             classNames = null;
