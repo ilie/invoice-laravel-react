@@ -1,4 +1,4 @@
-import { Formik, Form, Field, FieldArray } from "formik";
+import { Formik, Form, FieldArray } from "formik";
 import { newInvoiceSchema } from "../utils/schemas/yupValidations";
 import { makeid } from "../utils/data";
 import Input from "../ui/FormInputs/Input";
@@ -8,7 +8,6 @@ import DatePickerField from "../ui/FormInputs/DatePickerField";
 import useListResource from "../../hooks/useListResource";
 import { invoiceStatusOptions } from "../utils/data";
 import { isoToSql } from "../utils/formatters";
-import { toast } from "react-toastify";
 
 const NewInvoiceForm = (props) => {
     // Clients
@@ -35,6 +34,7 @@ const NewInvoiceForm = (props) => {
                 quantity: item.quantity,
             })),
         };
+
         props.onSubmitForm(data);
 
         if (props.success) {
@@ -45,7 +45,7 @@ const NewInvoiceForm = (props) => {
     return (
         <div className="wrapper-500 m-4-auto p-2">
             <Formik
-                // validationSchema={newInvoiceSchema}
+                validationSchema={newInvoiceSchema}
                 initialValues={{
                     client_id: "",
                     status: "",
@@ -102,6 +102,7 @@ const NewInvoiceForm = (props) => {
                                             Add item
                                         </Button>
                                     </label>
+
                                     {props.values.items.map((item, index) => (
                                         <div
                                             className="display-flex-row"
@@ -123,7 +124,8 @@ const NewInvoiceForm = (props) => {
                                                     className="quantity"
                                                     name={`items[${index}].quantity`}
                                                     maxLength="4"
-                                                    step={0.5}
+                                                    step={1}
+                                                    min="1"
                                                     type="number"
                                                 />
                                             </div>
@@ -148,7 +150,7 @@ const NewInvoiceForm = (props) => {
                                         ? "Saving invoice..."
                                         : "Create invoice"
                                 }
-                                // disabled={props.isSubmitting || !props.isValid}
+                                disabled={props.isSubmitting || !props.isValid}
                             />
                         </div>
                     </Form>

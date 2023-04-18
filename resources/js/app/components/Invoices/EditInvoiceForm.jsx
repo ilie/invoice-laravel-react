@@ -5,8 +5,8 @@ import SelectInput from "../ui/FormInputs/SelectInput";
 import useListResource from "../../hooks/useListResource";
 import DatePickerField from "../ui/FormInputs/DatePickerField";
 import { newInvoiceSchema } from "../utils/schemas/yupValidations";
-import useGetResourceByID from "../../hooks/useGetResourceByID";
-
+import { invoiceStatusOptions } from "../utils/data/";
+import { isoToSql } from "../utils/formatters";
 const EditInvoiceForm = (props) => {
     // Clients
     const { list: clients, isLoading: loadingClients } =
@@ -20,19 +20,14 @@ const EditInvoiceForm = (props) => {
     const { list, isLoading } = useListResource("items");
     const options = list.map((item) => ({ value: item.id, label: item.name }));
 
-    // Consts
     const invoiceData = props.invoice.data;
-    const clientData = invoiceData.relationships.client.data;
-    console.log(clientData);
-    // // Selected Client
-    // const {
-    //     resource: selectedClient,
-    //     loading: loadingSelectedClient,
-    //     error: errorSelectedClient,
-    // } = useGetResourceByID("/clients", clientData.id);
-    // console.log(selectedClient.name);
+    const clientData = invoiceData.relationships.client.data.attributes;
+    const clientId = invoiceData.relationships.client.data.id;
 
-    // Selected Item
+    const invoiceStatus = invoiceStatusOptions.find(
+        (status) => status.value === invoiceData.attributes.status
+    );
+    const invoiceItems = invoiceData.relationships.items.data;
 
     const submitHandler = (values, actions) => {
         const data = {
@@ -46,32 +41,33 @@ const EditInvoiceForm = (props) => {
                 quantity: item.quantity,
             })),
         };
-        props.onSubmitForm(data);
+        props.submitForm(data);
 
         if (props.success) {
             actions.resetForm();
         }
     };
 
-    // console.log(invoiceData);
-
     return (
         <div className="wrapper-500 m-4-auto p-2">
             <Formik
-                // validationSchema={newInvoiceSchema}
+                validationSchema={newInvoiceSchema}
                 initialValues={{
                     client_id: {
-                        value: clientData.id,
+                        value: clientId,
                         label: clientData.name,
                     },
 
-                    status: invoiceData.attributes.status,
+                    status: invoiceStatus,
                     irpf: invoiceData.attributes.irpf,
                     vat: invoiceData.attributes.vat,
-                    items: invoiceData.relationships.items.data.map((item) => ({
-                        item: item.attributes.name,
-                        date: item.attributes.date,
-                        quantity: item.attributes.quantity,
+                    items: invoiceItems.map((invoiceItem) => ({
+                        item: {
+                            value: invoiceItem.id,
+                            label: invoiceItem.attributes.name,
+                        },
+                        date: new Date(invoiceItem.attributes.date),
+                        quantity: invoiceItem.attributes.quantity,
                     })),
                 }}
                 onSubmit={submitHandler}
@@ -83,13 +79,9 @@ const EditInvoiceForm = (props) => {
                             name="client_id"
                             isLoading={loadingClients}
                             options={clientsList}
-                            value={{
-                                value: clientData.id,
-                                label: clientData.name,
-                            }}
                             placeholder="Please select a client"
                         />
-                        {/* <SelectInput
+                        <SelectInput
                             label="Status"
                             name="status"
                             options={invoiceStatusOptions}
@@ -108,12 +100,13 @@ const EditInvoiceForm = (props) => {
                             maxLength="4"
                             step={0.5}
                             type="number"
-                        /> */}
-                        {/* <FieldArray name="items">
+                        />
+                        <FieldArray name="items">
                             {({ push, remove }) => (
                                 <div className="formgroup">
                                     <label htmlFor="items">
-                                        Items{" "}
+                                        Items
+                                        {` (${props.values.items.length}) `}
                                         <Button
                                             btnType="primary-sm"
                                             click={() =>
@@ -130,7 +123,7 @@ const EditInvoiceForm = (props) => {
                                     {props.values.items.map((item, index) => (
                                         <div
                                             className="display-flex-row"
-                                            key={makeid()}
+                                            key={index}
                                         >
                                             <div className="inputs">
                                                 <SelectInput
@@ -164,14 +157,14 @@ const EditInvoiceForm = (props) => {
                                     ))}
                                 </div>
                             )}
-                        </FieldArray> */}
+                        </FieldArray>
                         <div className="formgroup">
                             <input
                                 type="submit"
                                 value={
                                     props.isSubmitting
-                                        ? "Saving invoice..."
-                                        : "Create invoice"
+                                        ? "Saving data..."
+                                        : "Update invoice"
                                 }
                                 // disabled={props.isSubmitting || !props.isValid}
                             />

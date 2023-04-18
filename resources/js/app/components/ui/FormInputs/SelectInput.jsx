@@ -19,7 +19,12 @@ const SelectInput = (props) => {
             <Select
                 {...field}
                 {...props}
-                className="select"
+                // className="select"
+                className={
+                    meta.touched && meta.error
+                        ? "select-error select"
+                        : "select"
+                }
                 styles={selectStyles}
                 isClearable={true}
                 onChange={(option) => {

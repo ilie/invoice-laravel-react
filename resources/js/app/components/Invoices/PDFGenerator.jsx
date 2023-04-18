@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         borderBottom: "1px solid black",
     },
     tableBody: {
-        marginBottom: "100px",
+        marginBottom: "70px",
     },
     tableItem: {
         display: "flex",

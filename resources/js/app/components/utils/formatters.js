@@ -71,12 +71,6 @@ export function isoToSql(isoDate) {
     return `${year}-${month}-${day}`;
 }
 
-export function sqlToIso(sqlDate) {
-    const [year, month, day] = sqlDate.split("-");
-    const date = new Date(year, month - 1, day);
-    return date.toISOString();
-}
-
 function padTo2Digits(num) {
     return num.toString().padStart(2, "0");
 }

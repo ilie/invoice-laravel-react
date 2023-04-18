@@ -258,6 +258,11 @@ form .formgroup label {
     margin-top: 25%;
     font-size: 2rem;
 }
+
+.select-error {
+    border: 1px solid var(--red-txt);
+    border-radius: 0.6rem;
+}
 /*Date picker */
 .item_date .react-datepicker__day--selected {
     background-color: var(--purple) !important;

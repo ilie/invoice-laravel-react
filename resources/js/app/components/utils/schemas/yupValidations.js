@@ -47,20 +47,22 @@ export const newInvoiceSchema = yup.object().shape({
     status: yup.mixed().required("Please pick a status from the dropdown list"),
     irpf: yup
         .number("IRPF must be a number")
-        .required("IRPF is required")
+        .optional()
         .positive("IRPF must be positive"),
     vat: yup
         .number("VAT must be a number")
         .required("VAT is required")
         .positive("IRPF must be positive"),
-    items: yup.array().of(
-        yup.object().shape({
-            id: yup.string().required("Item is required"),
-            date: yup.date().required("Date is required"),
-            quantity: yup
-                .number()
-                .positive("Quntity must be a positive number")
-                .required("Please provide a quantity"),
-        })
-    ),
+    items: yup
+        .array(
+            yup.object({
+                item: yup.mixed().required("Item is required"),
+                date: yup.date("Date is required").required("Date is required"),
+                quantity: yup
+                    .number("Must be a num")
+                    .required("Q Is req.")
+                    .positive("Q must be +"),
+            })
+        )
+        .min(1, "At leas one item is required"),
 });

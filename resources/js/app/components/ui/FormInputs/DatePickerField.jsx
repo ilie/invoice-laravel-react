@@ -14,7 +14,11 @@ const DatePickerField = ({ ...props }) => {
         <DatePicker
             {...field}
             {...props}
-            className="date item_date"
+            className={
+                meta.error && meta.touched
+                    ? "input-error date item_date"
+                    : "date item_date"
+            }
             dateFormat="dd/MM/yyyy"
             selected={(field.value && new Date(field.value)) || null}
             onChange={(date) => setFieldValue(field.name, date)}

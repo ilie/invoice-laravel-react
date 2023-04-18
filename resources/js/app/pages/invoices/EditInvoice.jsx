@@ -1,6 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Loader from "../../components/ui/Loader/Loader";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import useUpdateResource from "../../hooks/useUpdateResource";
@@ -9,8 +9,9 @@ import EditInvoiceForm from "../../components/Invoices/EditInvoiceForm";
 import NewResourceHeader from "../../components/ui/NewResourceHeader/NewResourceHeader";
 
 const EditInvoice = () => {
-    useDocumentTitle("New Invoice | Billing");
+    useDocumentTitle("Edit Invoice | Billing");
     const { id } = useParams();
+    const navigate = useNavigate();
     const { resource, loading, error } = useGetResourceByID(
         "/invoices",
         id,
@@ -24,7 +25,8 @@ const EditInvoice = () => {
             toast.error(updatingError.message);
             return;
         }
-        toast.success("Client updated successfully");
+        navigate("/invoices");
+        toast.success("Invoice updated successfully");
     };
 
     return (

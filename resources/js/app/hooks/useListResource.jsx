@@ -13,7 +13,6 @@ const useListResource = (resourceName) => {
                 const response = await axios.get(`/${resourceName}/list`);
                 setList(response.data);
                 setLoading(false);
-                console.log(`Fetching ${resourceName}...`);
             } catch (error) {
                 setError(error.message);
                 setLoading(false);
